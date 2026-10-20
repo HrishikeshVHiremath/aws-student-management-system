@@ -18,7 +18,7 @@ The application also uses Amazon S3 for image storage and an IAM role to grant t
 
 ## Application Screenshot
 
-![Student Management Dashboard](student-dashboard.png)
+![Student Management Dashboard](Screenshot%202026-10-20%20180040.png)
 
 ### AWS Services Used
 
