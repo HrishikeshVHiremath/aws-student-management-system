@@ -6,6 +6,32 @@ A cloud-hosted Student Management System built using **AWS, Python Flask, and My
 
 This project demonstrates how to deploy a Python web application on AWS, connect it to a managed relational database, and securely store student profile images in Amazon S3.
 
+## Features
+
+- **Student Management:** Add, view, edit, and delete student records.
+- **Profile Photo Management:** Upload and remove student photos using Amazon S3.
+- **Database Integration:** Store student records in Amazon RDS for MySQL.
+- **Secure AWS Access:** Use an IAM role to allow the EC2 instance to access S3 without hardcoding AWS access keys.
+- **Dynamic Image Display:** Generate pre-signed S3 URLs to display images from a private bucket.
+- **Responsive Dashboard:** Glassmorphism-inspired interface with student search and summary cards.
+
+## Deployment Architecture
+
+1. Users access the application through a web browser.
+2. Nginx receives HTTP requests and forwards them to the Flask application running on Amazon EC2.
+3. Flask connects to Amazon RDS for MySQL to store and retrieve student records.
+4. Student profile images are stored in a private Amazon S3 bucket.
+5. An EC2 IAM role grants the application the required S3 permissions.
+
+## Security
+
+- Database credentials are stored in environment variables and excluded from Git using `.gitignore`.
+- The S3 bucket blocks public access.
+- The EC2 instance uses an IAM role instead of hardcoded AWS access keys.
+- Pre-signed URLs provide temporary access to stored profile images.
+
+**Note:** This project is intended for learning and demonstration purposes. Production deployments should use HTTPS, stronger application security controls, and a production-ready WSGI server.
+
 ## Architecture
 
 **User → Nginx → Flask Application (Amazon EC2) → Amazon RDS for MySQL**
