@@ -12,6 +12,10 @@ This project demonstrates how to deploy a Python web application on AWS, connect
 
 The application also uses Amazon S3 for image storage and an IAM role to grant the EC2 instance permission to access S3.
 
+## AWS Architecture Diagram
+
+![Student Management System AWS Architecture](Student%20Management%20System%20AWS%20Architecture.png)
+
 ### AWS Services Used
 
 - **Amazon EC2:** Hosts the Flask web application.
