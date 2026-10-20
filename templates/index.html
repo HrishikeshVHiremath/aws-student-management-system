@@ -563,7 +563,14 @@
                                 <button class="btn btn-upload" type="submit">
                                     ↑ Upload Photo
                                 </button>
-                            </form>
+                            </form>{% if student.image_url %}
+<form action="/remove-photo/{{ student.student_id }}" method="POST"
+      onsubmit="return confirm('Remove this profile photo?');">
+    <button class="btn btn-delete" type="submit">
+        Remove Photo
+    </button>
+</form>
+{% endif %}
                         </td>
                     </tr>
                 {% else %}

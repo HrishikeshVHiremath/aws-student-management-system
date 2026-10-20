@@ -191,6 +191,33 @@ def students():
 
     return str(students)
 
+@app.route("/remove-photo/<int:student_id>", methods=["POST"])
+def remove_photo(student_id):
+    connection = get_db_connection()
+    cursor = connection.cursor()
+
+    cursor.execute(
+        "SELECT image_url FROM students WHERE student_id = %s",
+        (student_id,)
+    )
+    student = cursor.fetchone()
+
+    if student and student["image_url"]:
+        s3.delete_object(
+            Bucket=S3_BUCKET,
+            Key=student["image_url"]
+        )
+
+        cursor.execute(
+            "UPDATE students SET image_url = NULL WHERE student_id = %s",
+            (student_id,)
+        )
+        connection.commit()
+
+    cursor.close()
+    connection.close()
+
+    return redirect("/")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
