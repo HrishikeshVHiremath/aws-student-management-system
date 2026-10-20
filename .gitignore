@@ -1,0 +1,10 @@
+.env
+*.pem
+*.save
+*.save.*
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.git/
+*.backup
