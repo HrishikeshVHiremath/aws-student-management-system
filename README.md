@@ -16,6 +16,10 @@ The application also uses Amazon S3 for image storage and an IAM role to grant t
 
 ![Student Management System AWS Architecture](Student%20Management%20System%20AWS%20Architecture.png)
 
+## Application Screenshot
+
+![Student Management Dashboard](student-dashboard.png)
+
 ### AWS Services Used
 
 - **Amazon EC2:** Hosts the Flask web application.
